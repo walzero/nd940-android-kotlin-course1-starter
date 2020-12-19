@@ -5,7 +5,31 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_padding">
+
+        <ImageView
+            android:id="@+id/login_image"
+            android:layout_width="@dimen/extra_large_image_size"
+            android:layout_height="192dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/unknown_user_image_description"
+            android:scaleType="fitXY"
+            android:src="@drawable/unknown_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

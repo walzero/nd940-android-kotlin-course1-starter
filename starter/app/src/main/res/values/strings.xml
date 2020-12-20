@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">ShoeStore</string>
+    <string name="app_name">Walter\'s Shoe Shop</string>
     <string name="email">Email</string>
-    <string name="unknown_user_image_description">Disguise glasses and mustache image</string>
+    <string name="shop_image_description">Brown cartoon image of a shoe shop</string>
+    <string name="password">Password</string>
+    <string name="login_text">Welcome to Walter\'s shoe shop!</string>
+    <string name="login">Login</string>
+    <string name="register"><u>Register</u></string>
 </resources>

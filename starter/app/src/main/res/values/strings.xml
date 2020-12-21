@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Walter\'s Shoe Shop</string>
     <string name="email">Email</string>
-    <string name="shop_image_description">Brown cartoon image of a shoe shop</string>
     <string name="password">Password</string>
+    <string name="shop_image_description">Brown cartoon image of a shoe shop</string>
     <string name="login_text">Walter\'s shoe shop!</string>
     <string name="welcome_text">Welcome to Walter\'s shoe shop!</string>
     <string name="getting_started_text">We hope you enjoy our app, lets get started with the instructions.</string>
     <string name="login_button">Login</string>
     <string name="instructions_button">Begin instructions</string>
     <string name="register_button"><u>Register</u></string>
+    <string name="email_required">Please type your e-mail before proceeding</string>
+    <string name="password_required">Please type your password before proceeding</string>
+    <string name="email_and_password_required">Please type your e-mail and password before proceeding</string>
 </resources>

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 
-class WelcomeFragment: Fragment() {
+class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
 

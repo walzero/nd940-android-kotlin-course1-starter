@@ -22,4 +22,18 @@
         <item name="textFillColor">@color/colorPrimary</item>
     </style>
 
+    <style name="AppTheme.Button" parent="AppTheme">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
+        <item name="backgroundTint">@color/transparent_ice</item>
+        <item name="android:textColor">@color/primaryDark</item>
+        <item name="android:topLeftRadius">@dimen/default_roundness</item>
+        <item name="android:topRightRadius">@dimen/default_roundness</item>
+        <item name="android:bottomLeftRadius">@dimen/default_roundness</item>
+        <item name="android:bottomRightRadius">@dimen/default_roundness</item>
+        <item name="layout_constraintWidth_max">@dimen/max_button_width</item>
+    </style>
+
 </resources>

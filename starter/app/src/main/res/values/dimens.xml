@@ -9,4 +9,5 @@
     <dimen name="default_field_margin">8dp</dimen>
     <dimen name="default_roundness">16dp</dimen>
     <dimen name="large_title">28sp</dimen>
+    <dimen name="max_button_width">480dp</dimen>
 </resources>

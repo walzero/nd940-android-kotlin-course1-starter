@@ -9,7 +9,14 @@
     <string name="login_button">Login</string>
     <string name="instructions_button">Begin instructions</string>
     <string name="register_button"><u>Register</u></string>
+    <string name="get_started_button">Let\'s get started</string>
     <string name="email_required">Please type your e-mail before proceeding</string>
     <string name="password_required">Please type your password before proceeding</string>
     <string name="email_and_password_required">Please type your e-mail and password before proceeding</string>
+    <string name="first_instruction_text">Our app shows your shoe list, with all the shoes you have registered.</string>
+    <string name="second_instruction_text">Click on the add button to register a new shoe to be shown on the list.</string>
+
+    <string name="shoe_item_name">Name: %1$s</string>
+    <string name="shoe_item_brand">Brand: %1$s</string>
+    <string name="shoe_item_size">Size: %1$s</string>
 </resources>

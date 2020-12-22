@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/small_padding">
+
+    <ImageView
+        android:id="@+id/shoe_item_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/default_field_margin"
+        android:paddingStart="@dimen/extra_small_padding"
+        android:paddingTop="@dimen/extra_small_padding"
+        android:paddingEnd="@dimen/extra_small_padding"
+        android:scaleType="fitXY"
+        android:elevation="@dimen/default_elevation"
+        app:layout_constraintBottom_toBottomOf="@+id/shoe_item_size"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/shoe_item_name"
+        app:layout_constraintHeight_max="@dimen/extra_large_image_size"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/extra_large_image_size"
+        tools:srcCompat="@drawable/boots" />
+
+    <TextView
+        android:id="@+id/shoe_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_field_margin"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="start"
+        android:textColor="@color/black_gray"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_item_brand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/shoe_item_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name: Air Jordan's Boots Edition" />
+
+    <TextView
+        android:id="@+id/shoe_item_brand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_field_margin"
+        android:layout_marginEnd="@dimen/default_field_margin"
+        android:fontFamily="@font/roboto"
+        android:gravity="start"
+        android:textColor="@color/extra_darker_gray"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_item_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/shoe_item_image"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_item_name"
+        tools:text="Brand: Nike" />
+
+    <TextView
+        android:id="@+id/shoe_item_size"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_field_margin"
+        android:layout_marginEnd="@dimen/default_field_margin"
+        android:fontFamily="@font/roboto"
+        android:gravity="start"
+        android:textColor="@color/extra_darker_gray"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintBottom_toTopOf="@+id/shoe_item_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/shoe_item_image"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_item_brand"
+        tools:text="Size: 42" />
+
+    <TextView
+        android:id="@+id/shoe_item_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_field_margin"
+        android:layout_marginEnd="@dimen/default_field_margin"
+        android:fontFamily="@font/roboto"
+        android:gravity="start"
+        android:textColor="@color/darker_gray"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/shoe_item_image"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_item_size"
+        tools:text="Great shoes for basketball" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IdRes
-import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -50,13 +48,11 @@ class LoginFragment : Fragment() {
         findNavController(this@LoginFragment).navigate(action)
     }
 
-    private fun hasPassword(): Boolean {
-        return binding.passwordInput.text?.isNotBlank() ?: false
-    }
+    private fun hasPassword(): Boolean =
+        binding.passwordInput.text?.isNotBlank() ?: false
 
-    private fun hasEmail(): Boolean {
-        return binding.emailInput.text?.isNotBlank() ?: false
-    }
+    private fun hasEmail(): Boolean =
+        binding.emailInput.text?.isNotBlank() ?: false
 
     private fun showShortToast(message: String) {
         requireContext().showAsShortToast(message)

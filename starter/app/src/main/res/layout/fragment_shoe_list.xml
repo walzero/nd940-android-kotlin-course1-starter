@@ -7,5 +7,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@android:color/darker_gray"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_shoe" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

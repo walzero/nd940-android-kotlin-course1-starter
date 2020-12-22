@@ -11,4 +11,9 @@
     <color name="primaryLight">#E1DDDB</color>
 
     <color name="transparent_ice">#E6FFFFFF</color>
+    <color name="light_gray">#d3d3d3</color>
+    <color name="dark_gray">#a2a2a2</color>
+    <color name="darker_gray">#828282</color>
+    <color name="extra_darker_gray">#424242</color>
+    <color name="black_gray">#2a2a2a</color>
 </resources>

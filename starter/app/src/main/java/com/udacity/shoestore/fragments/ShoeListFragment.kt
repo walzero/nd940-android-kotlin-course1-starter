@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.udacity.shoestore.R
 import com.udacity.shoestore.ShoeListAdapter
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
@@ -15,42 +16,7 @@ class ShoeListFragment: Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
-    private val mockShoe by lazy {
-        Shoe(
-            name = "Air Jordan max jump",
-            size = 42.0,
-            description = "Great basketball shoes",
-            company = "Nike",
-            images = listOf()
-        )
-    }
-
-    private val tempList by lazy {
-        mutableListOf(
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy(),
-            mockShoe.copy()
-        )
-    }
-
-    private val shoeListAdapter by lazy { ShoeListAdapter(tempList) }
+    private val shoeListAdapter by lazy { ShoeListAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,11 +30,26 @@ class ShoeListFragment: Fragment() {
             false
         )
 
+        binding.shoeListFab.setOnClickListener { shoeListAdapter.addShoe(mockShoe.copy()) }
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.shoeList.adapter = shoeListAdapter
+        binding.shoeList.apply {
+            adapter = shoeListAdapter
+            addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        }
+    }
+
+    private val mockShoe by lazy {
+        Shoe(
+            name = "Air Jordan max jump",
+            size = 42.0,
+            description = "Great basketball shoes",
+            company = "Nike",
+            images = listOf()
+        )
     }
 }

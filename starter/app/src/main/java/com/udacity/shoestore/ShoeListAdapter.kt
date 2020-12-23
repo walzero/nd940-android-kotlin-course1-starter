@@ -8,8 +8,38 @@ import com.udacity.shoestore.models.Shoe
 
 
 class ShoeListAdapter(
-    private var shoeList: MutableList<Shoe>
+    private var shoeList: MutableList<Shoe> = mutableListOf()
 ) : RecyclerView.Adapter<ShoeListAdapter.ShoeViewHolder>() {
+
+    private lateinit var recyclerView: RecyclerView
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        this.recyclerView = recyclerView
+    }
+
+    fun addShoe(shoe: Shoe) {
+        synchronized(shoeList) {
+            shoeList.add(shoe)
+            notifyItemInserted(shoeList.lastIndex)
+            scrollToTheEnd()
+        }
+    }
+
+    fun addShoes(shoes: List<Shoe>) {
+        synchronized(shoeList) {
+            val startPosition = shoeList.lastIndex
+            shoeList.addAll(shoes)
+            notifyItemRangeInserted(startPosition.inc(), shoes.count())
+            scrollToTheEnd()
+        }
+    }
+
+    private fun scrollToTheEnd() {
+        if(::recyclerView.isInitialized) {
+            recyclerView.scrollToPosition(shoeList.lastIndex)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

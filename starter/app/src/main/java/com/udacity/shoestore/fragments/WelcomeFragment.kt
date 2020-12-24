@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
@@ -33,6 +32,11 @@ class WelcomeFragment : BaseNavigationFragment() {
 
     private fun goToInstructionsFragment() {
         val action = WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment()
+        NavHostFragment.findNavController(this@WelcomeFragment).navigate(action)
+    }
+
+    override fun navigateBackToLogin() {
+        val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment()
         NavHostFragment.findNavController(this@WelcomeFragment).navigate(action)
     }
 }

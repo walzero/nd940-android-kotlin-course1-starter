@@ -90,4 +90,9 @@ class ShoeListFragment : ShoeStoreFragment() {
         val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
         NavHostFragment.findNavController(this@ShoeListFragment).navigate(action)
     }
+
+    override fun navigateBackToLogin() {
+        val action = ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment()
+        NavHostFragment.findNavController(this@ShoeListFragment).navigate(action)
+    }
 }

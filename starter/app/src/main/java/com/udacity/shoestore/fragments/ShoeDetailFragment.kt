@@ -10,7 +10,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
 
-class ShoeDetailFragment : ShoeStoreFragment() {
+class ShoeDetailFragment : ShoeStoreFragment(hasLogoutFunction = false) {
 
     private lateinit var binding: FragmentShoeDetailBinding
 

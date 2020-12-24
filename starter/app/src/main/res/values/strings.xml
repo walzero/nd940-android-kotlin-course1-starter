@@ -26,4 +26,5 @@
     <string name="shoe_item_brand">Brand: %1$s</string>
     <string name="shoe_item_size">Size: %1$s</string>
     <string name="add_shoe_button">Add shoe button</string>
+    <string name="logout">Logout</string>
 </resources>

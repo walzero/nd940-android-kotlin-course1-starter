@@ -4,24 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import com.udacity.shoestore.R
-import com.udacity.shoestore.ShoeListAdapter
-import com.udacity.shoestore.databinding.FragmentShoeListBinding
-import java.util.*
+import androidx.databinding.DataBindingUtil.inflate
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
+import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ItemShoeBinding
 import com.udacity.shoestore.models.Shoe
+import java.util.*
+
 
 class ShoeListFragment : ShoeStoreFragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
-    private val shoeListAdapter by lazy { ShoeListAdapter() }
+//Unused without recyclerview
+//    private val shoeListAdapter by lazy { ShoeListAdapter() }
+
+//Unused without recyclerview
+//    private val shoeObserver: Observer<List<Shoe>?> = Observer { shoes ->
+//        shoes?.let { shoeListAdapter.replaceShoes(it) }
+//    }
 
     private val shoeObserver: Observer<List<Shoe>?> = Observer { shoes ->
-        shoes?.let { shoeListAdapter.replaceShoes(it) }
+        shoes?.let { items -> addItemsToLinearLayout(items) }
     }
 
     override fun onCreateView(
@@ -29,7 +35,7 @@ class ShoeListFragment : ShoeStoreFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(
+        binding = inflate(
             inflater,
             R.layout.fragment_shoe_list,
             container,
@@ -44,18 +50,36 @@ class ShoeListFragment : ShoeStoreFragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.shoeList.apply {
-            adapter = shoeListAdapter
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
-            )
+    private fun addItemsToLinearLayout(shoes: List<Shoe>) {
+        binding.shoeList.removeAllViews()
+        shoes.forEach {
+            inflateShoeItemView(it)
         }
     }
+
+    private fun inflateShoeItemView(shoe: Shoe) {
+        val shoeBinding = ItemShoeBinding.inflate(
+            LayoutInflater.from(binding.shoeList.context),
+            binding.shoeList,
+            true
+        )
+
+        shoeBinding.shoe = shoe
+    }
+
+//Unused without recyclerview
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        binding.shoeList.apply {
+//            adapter = shoeListAdapter
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    requireContext(),
+//                    DividerItemDecoration.VERTICAL
+//                )
+//            )
+//        }
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

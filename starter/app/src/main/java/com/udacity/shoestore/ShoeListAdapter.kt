@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.udacity.shoestore.databinding.ItemShoeBinding
 import com.udacity.shoestore.models.Shoe
 
-
+//unused because of project scope
 class ShoeListAdapter(
     private var shoeList: MutableList<Shoe> = mutableListOf()
 ) : RecyclerView.Adapter<ShoeListAdapter.ShoeViewHolder>() {

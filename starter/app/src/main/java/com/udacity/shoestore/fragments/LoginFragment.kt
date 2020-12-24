@@ -8,7 +8,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.extensions.showAsShortToast
 
-class LoginFragment : BaseNavigationFragment(
+class LoginFragment : ShoeStoreFragment(
     hasLogoutFunction = false
 ) {
 

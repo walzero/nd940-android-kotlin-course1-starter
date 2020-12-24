@@ -12,20 +12,19 @@
             type="com.udacity.shoestore.ShoeViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--Used LinearLayout due to only having on child-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/primary_gradient">
+        android:background="@drawable/primary_gradient"
+        android:orientation="vertical">
 
         <androidx.core.widget.NestedScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
+            <!--Used ConstraintLayout because of complex layout-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/detail_view_container"
                 android:layout_width="match_parent"
@@ -198,5 +197,5 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

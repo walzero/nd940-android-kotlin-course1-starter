@@ -24,5 +24,9 @@ class ShoeViewModel : ViewModel() {
         }
     }
 
+    fun clearShoes() {
+        _shoesData.value?.clear()
+    }
+
     var currentShoe: Shoe = Shoe()
 }

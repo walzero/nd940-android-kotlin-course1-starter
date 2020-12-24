@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.udacity.shoestore.R
 import com.udacity.shoestore.ShoeListAdapter
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
 
-class ShoeListFragment: Fragment() {
+class ShoeListFragment: BaseNavigationFragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
@@ -30,7 +30,7 @@ class ShoeListFragment: Fragment() {
             false
         )
 
-        binding.shoeListFab.setOnClickListener { shoeListAdapter.addShoe(mockShoe.copy()) }
+        binding.shoeListFab.setOnClickListener { goToDetailScreen() }
 
         return binding.root
     }
@@ -41,6 +41,11 @@ class ShoeListFragment: Fragment() {
             adapter = shoeListAdapter
             addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         }
+    }
+
+    private fun goToDetailScreen() {
+        val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
+        NavHostFragment.findNavController(this@ShoeListFragment).navigate(action)
     }
 
     private val mockShoe by lazy {

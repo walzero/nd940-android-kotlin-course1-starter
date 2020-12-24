@@ -11,7 +11,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.extensions.showAsShortToast
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseNavigationFragment() {
 
     private lateinit var binding: FragmentLoginBinding
 

@@ -10,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 
-class WelcomeFragment : Fragment() {
+class WelcomeFragment : BaseNavigationFragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
 

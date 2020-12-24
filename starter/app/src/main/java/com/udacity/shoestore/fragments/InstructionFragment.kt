@@ -10,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
 
-class InstructionFragment : Fragment() {
+class InstructionFragment : BaseNavigationFragment() {
 
     private lateinit var binding: FragmentInstructionBinding
 

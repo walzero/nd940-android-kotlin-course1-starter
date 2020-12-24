@@ -22,7 +22,6 @@ class ShoeListAdapter(
         synchronized(shoeList) {
             shoeList.add(shoe)
             notifyItemInserted(shoeList.lastIndex)
-            scrollToTheEnd()
         }
     }
 
@@ -31,12 +30,18 @@ class ShoeListAdapter(
             val startPosition = shoeList.lastIndex
             shoeList.addAll(shoes)
             notifyItemRangeInserted(startPosition.inc(), shoes.count())
-            scrollToTheEnd()
+        }
+    }
+
+    fun replaceShoes(shoes: List<Shoe>) {
+        synchronized(shoeList) {
+            shoeList = shoes.toMutableList()
+            notifyDataSetChanged()
         }
     }
 
     private fun scrollToTheEnd() {
-        if(::recyclerView.isInitialized) {
+        if (::recyclerView.isInitialized) {
             recyclerView.scrollToPosition(shoeList.lastIndex)
         }
     }

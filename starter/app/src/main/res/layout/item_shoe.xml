@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
@@ -34,7 +35,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_max="@dimen/extra_large_image_size"
-            tools:srcCompat="@drawable/boots" />
+            app:srcCompat="@drawable/broken_image_orange_24"
+            tools:srcCompat="@drawable/broken_image_orange_24" />
 
         <TextView
             android:id="@+id/shoe_item_name"
@@ -43,9 +45,9 @@
             android:layout_marginStart="@dimen/default_field_margin"
             android:fontFamily="@font/roboto_medium"
             android:gravity="start"
+            android:text="@{String.format(@string/shoe_item_name, shoe.name)}"
             android:textColor="@color/black_gray"
             android:textSize="@dimen/small_text"
-            android:text="@{String.format(@string/shoe_item_name, shoe.name)}"
             app:layout_constraintBottom_toTopOf="@+id/shoe_item_brand"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -62,9 +64,9 @@
             android:layout_marginEnd="@dimen/default_field_margin"
             android:fontFamily="@font/roboto"
             android:gravity="start"
+            android:text="@{String.format(@string/shoe_item_brand, shoe.company)}"
             android:textColor="@color/extra_darker_gray"
             android:textSize="@dimen/small_text"
-            android:text="@{String.format(@string/shoe_item_brand, shoe.company)}"
             app:layout_constraintBottom_toTopOf="@+id/shoe_item_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="3"
@@ -80,9 +82,9 @@
             android:layout_marginEnd="@dimen/default_field_margin"
             android:fontFamily="@font/roboto"
             android:gravity="start"
+            android:text="@{String.format(@string/shoe_item_size, shoe.size)}"
             android:textColor="@color/extra_darker_gray"
             android:textSize="@dimen/small_text"
-            android:text="@{String.format(@string/shoe_item_size, shoe.size)}"
             app:layout_constraintBottom_toTopOf="@+id/shoe_item_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="3"
@@ -98,9 +100,9 @@
             android:layout_marginEnd="@dimen/default_field_margin"
             android:fontFamily="@font/roboto"
             android:gravity="start"
+            android:text="@{shoe.description}"
             android:textColor="@color/darker_gray"
             android:textSize="@dimen/small_text"
-            android:text="@{shoe.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toEndOf="@+id/shoe_item_image"

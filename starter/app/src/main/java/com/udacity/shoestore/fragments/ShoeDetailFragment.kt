@@ -10,7 +10,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
 
-class ShoeDetailFragment: ShoeStoreFragment() {
+class ShoeDetailFragment : ShoeStoreFragment() {
 
     private lateinit var binding: FragmentShoeDetailBinding
 
@@ -26,13 +26,12 @@ class ShoeDetailFragment: ShoeStoreFragment() {
             false
         )
 
-        shoeViewModel.currentShoe.value = Shoe()
-
+        binding.lifecycleOwner = requireActivity()
         binding.viewmodel = shoeViewModel
 
         binding.cancelButton.setOnClickListener { popCurrentFragment() }
         binding.saveButton.setOnClickListener {
-            shoeViewModel.addShoe(shoeViewModel.currentShoe.value)
+            shoeViewModel.addShoe(shoeViewModel.currentShoe)
             popCurrentFragment()
         }
 
@@ -44,6 +43,11 @@ class ShoeDetailFragment: ShoeStoreFragment() {
         binding.nameInput.filters = arrayOf(InputFilter.LengthFilter(MAX_NAME))
         binding.brandInput.filters = arrayOf(InputFilter.LengthFilter(MAX_BRAND))
         binding.descriptionInput.filters = arrayOf(InputFilter.LengthFilter(MAX_DESCRIPTION))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        shoeViewModel.currentShoe = Shoe()
     }
 
     companion object {

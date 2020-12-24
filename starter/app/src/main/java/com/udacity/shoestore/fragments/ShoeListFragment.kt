@@ -10,13 +10,19 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.udacity.shoestore.R
 import com.udacity.shoestore.ShoeListAdapter
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import java.util.*
+import androidx.lifecycle.Observer
 import com.udacity.shoestore.models.Shoe
 
-class ShoeListFragment: BaseNavigationFragment() {
+class ShoeListFragment : ShoeStoreFragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
     private val shoeListAdapter by lazy { ShoeListAdapter() }
+
+    private val shoeObserver: Observer<List<Shoe>?> = Observer { shoes ->
+        shoes?.let { shoeListAdapter.replaceShoes(it) }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +36,9 @@ class ShoeListFragment: BaseNavigationFragment() {
             false
         )
 
+        binding.lifecycleOwner = requireActivity()
+
+        shoeViewModel.shoesData.observe(requireActivity(), shoeObserver)
         binding.shoeListFab.setOnClickListener { goToDetailScreen() }
 
         return binding.root
@@ -39,22 +48,22 @@ class ShoeListFragment: BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.shoeList.apply {
             adapter = shoeListAdapter
-            addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        shoeViewModel.shoesData.removeObserver(shoeObserver)
     }
 
     private fun goToDetailScreen() {
         val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
         NavHostFragment.findNavController(this@ShoeListFragment).navigate(action)
-    }
-
-    private val mockShoe by lazy {
-        Shoe(
-            name = "Air Jordan max jump",
-            size = 42.0,
-            description = "Great basketball shoes",
-            company = "Nike",
-            images = listOf()
-        )
     }
 }

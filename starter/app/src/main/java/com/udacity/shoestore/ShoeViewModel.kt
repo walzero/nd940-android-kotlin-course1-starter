@@ -9,14 +9,20 @@ import timber.log.Timber
 
 class ShoeViewModel : ViewModel() {
 
-    private val _shoesData: MutableLiveData<MutableList<Shoe>> = MutableLiveData(mutableListOf())
+    private val _shoesData: MutableLiveData<MutableList<Shoe>> = MutableLiveData()
     val shoesData: LiveData<List<Shoe>>
         get() = Transformations.map(_shoesData) { it.toList() }
 
-    fun addShoe(shoe: Shoe?) {
-        Timber.i("SIZE VALUE: ${shoe?.size}")
-        shoe?.let { _shoesData.value?.add(it) }
+    init {
+        _shoesData.value = mutableListOf()
     }
 
-    val currentShoe: MutableLiveData<Shoe> = MutableLiveData()
+    fun addShoe(shoe: Shoe?) {
+        shoe?.run {
+            size = size ?: 0.0
+            _shoesData.value?.add(this)
+        }
+    }
+
+    var currentShoe: Shoe = Shoe()
 }

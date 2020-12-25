@@ -9,7 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 
-class WelcomeFragment : ShoeStoreFragment() {
+class WelcomeFragment : ShoeStoreFragment(hasLogoutFunction = false) {
 
     private lateinit var binding: FragmentWelcomeBinding
 

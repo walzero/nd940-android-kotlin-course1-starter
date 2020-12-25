@@ -9,7 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
 
-class InstructionFragment : ShoeStoreFragment() {
+class InstructionFragment : ShoeStoreFragment(hasLogoutFunction = false) {
 
     private lateinit var binding: FragmentInstructionBinding
 

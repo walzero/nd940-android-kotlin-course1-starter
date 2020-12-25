@@ -12,7 +12,7 @@
             type="com.udacity.shoestore.ShoeViewModel" />
     </data>
 
-    <!--Used LinearLayout due to only having on child-->
+    <!--Used LinearLayoutfor only having one child-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
